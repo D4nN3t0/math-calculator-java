@@ -13,7 +13,7 @@ public class Menu {
 
             switch (opcao) {
                 case 0:
-                    System.out.println("Saindo...");
+                    System.out.println("Encerrando a calculadora... Até mais!");
                     break;
                 case 1:
                     somar();
@@ -52,6 +52,9 @@ public class Menu {
 
     private static void mostrarMenu() {
         System.out.println("""
+                ================================
+                        CALCULADORA JAVA
+                ================================
                 [1] Soma
                 [2] Subtração
                 [3] Multiplicação
@@ -59,19 +62,27 @@ public class Menu {
                 [5] Potência
                 [6] Raiz quadrada
                 [7] Valor absoluto
-                [8] Maior entre os números
-                [9] Menor entre os números
-                [0] Sair""");
+                [8] Maior número
+                [9] Menor número
+                [0] Sair
+                ================================
+                Escolha uma opção:""");
     }
 
-    private double[] lerDoisNumeros () {
-        System.out.print("Digite dois números: ");
-        double a = leia.nextDouble();
-        double b = leia.nextDouble();
-        return new double[]{a, b};
+    private double[] lerDoisNumeros() {
+        double[] numeros = new double[2];
+
+        System.out.println("\nEntrada de dados:");
+        System.out.print("Digite o primeiro número: ");
+        numeros[0] = leia.nextDouble();
+
+        System.out.print("Digite o segundo número: ");
+        numeros[1] = leia.nextDouble();
+
+        return numeros;
     }
 
-    private double[] lerVariosNumeros () {
+    private double[] lerVariosNumeros() {
         System.out.println("Quantos números você quer digitar?");
         int qtd = leia.nextInt();
 
@@ -84,63 +95,66 @@ public class Menu {
         return numeros;
     }
 
-    private void mostrarResultado (double resultado) {
+    private void mostrarResultado(String operacao, double resultado) {
+        System.out.println("\n-------------------------------");
+        System.out.println("Operação: " + operacao);
         System.out.println("Resultado: " + resultado);
+        System.out.println("-------------------------------\n");
     }
 
     private void somar() {
         double[] numeros = lerDoisNumeros();
         double resultado = calc.somar(numeros[0], numeros[1]);
-        mostrarResultado(resultado);
+        mostrarResultado("SOMA", resultado);
     }
 
 
     private void subtrair() {
         double[] numeros = lerDoisNumeros();
         double resultado = calc.subtrair(numeros[0], numeros[1]);
-        mostrarResultado(resultado);
+        mostrarResultado("SUBTRAÇÃO", resultado);
     }
 
-    private void multiplicar () {
+    private void multiplicar() {
         double[] numeros = lerDoisNumeros();
         double resultado = calc.multiplicar(numeros[0], numeros[1]);
-        mostrarResultado(resultado);
+        mostrarResultado("MULTIPLICAÇÃO", resultado);
     }
 
-    private void dividir () {
+    private void dividir() {
         double[] numeros = lerDoisNumeros();
         double resultado = calc.dividir(numeros[0], numeros[1]);
-        mostrarResultado(resultado);
+        mostrarResultado("DIVISÃO", resultado);
     }
 
-    private void potencia () {
+    private void potencia() {
         double[] numeros = lerDoisNumeros();
         double resultado = calc.potencia(numeros[0], numeros[1]);
-        mostrarResultado(resultado);
+        mostrarResultado("POTENCIA", resultado);
     }
 
-    private void raiz () {
+    private void raiz() {
         double numero = leia.nextDouble();
         double resultado = calc.raiz(numero);
-        mostrarResultado(resultado);
+        mostrarResultado("RAIZ QUADRADA", resultado);
     }
 
-    private void absoluto () {
+    private void absoluto() {
         double numero = leia.nextDouble();
         double resultado = calc.absoluto(numero);
-        mostrarResultado(resultado);
+        mostrarResultado("VALOR ABSOLUTO", resultado);
     }
 
-    private void maior () {
+    private void maior() {
         double[] numeros = lerVariosNumeros();
         double resultado = calc.maiorNumero(numeros);
-        mostrarResultado(resultado);
+        mostrarResultado("MAIOR VALOR", resultado);
     }
 
-    private void menor () {
+    private void menor() {
         double[] numeros = lerVariosNumeros();
         double resultado = calc.menorNumero(numeros);
-        mostrarResultado(resultado);
+        mostrarResultado("MENOR VALOR", resultado);
     }
 
 }
