@@ -7,7 +7,7 @@ Uma calculadora desenvolvida em Java que permite realizar operações matemátic
 ## 🎥 Demonstração
 
 <p align="center">
-  <img src="demo.gif" alt="Demonstração da Calculadora" width="300"/>
+  <img src="demo.gif" alt="Demonstração da Calculadora" width="280"/>
 </p>
 
 ---
